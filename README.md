@@ -1,0 +1,1 @@
+echo # enumerable_methods
