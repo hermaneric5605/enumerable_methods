@@ -1,16 +1,33 @@
 module Enumerable
+	def my_each
+		for x in self
+			yield(x)
+		end
+	end
 
-  def my_each
-    i = 0
-    while i < self.size
-        yield(self[i])  
-        i+=1      
-    end
-    self
-  end
+	def my_each_with_index
+		for i in  (0..size)
+		end
+	end
 
-def my_each_with_index
+
+	def my_select
+	    result = []
+	    self.my_each { |x| result << x if yield(x) }
+	    result
+  	end
+
+  	def my_all?
+	    self.my_each { |x| return false unless yield(x) }
+	    true
+  	end
+
+  	def my_any?
+	    self.my_each { |x| return true if yield(x) }
+	    false
+  	end
+
+  	
 
 
 end
-
